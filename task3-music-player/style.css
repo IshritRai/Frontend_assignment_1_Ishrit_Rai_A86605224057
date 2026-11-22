@@ -1,0 +1,56 @@
+/* ==========================================================
+   Task 3 - Music Player & Playlist Shelf (dark mode)
+   Mobile-first: player and queue stack in one column and
+   become a 200px | 1fr grid at @media (min-width: 768px).
+   ========================================================== */
+
+/* 1. Box Model Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Design tokens (dark theme) */
+:root {
+  --bg: #05060f;
+  --surface: #0f1123;
+  --surface-2: #171a33;
+  --text: #f1f5f9;
+  --muted: #8b93b5;
+  --border: rgba(148, 163, 184, 0.14);
+  --accent: #22d3ee;
+  --accent-2: #a855f7;
+  --radius: 1.5rem;
+}
+
+/* 3. Base elements */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(168, 85, 247, 0.18), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(34, 211, 238, 0.14), transparent 40%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.component-container {
+  width: 100%;
+  max-width: 760px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

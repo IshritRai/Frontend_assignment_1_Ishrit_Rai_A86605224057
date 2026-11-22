@@ -1,0 +1,389 @@
+/* ==========================================================
+   Task 2 - Responsive Pricing Cards
+   Mobile-first: cards stack in one column by default and
+   switch to a three-column grid at @media (min-width: 850px).
+   ========================================================== */
+
+/* 1. Box Model Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Design tokens */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #7c3aed;
+  --accent-dark: #6d28d9;
+  --accent-soft: #ede9fe;
+  --success: #16a34a;
+  --radius: 1.25rem;
+  --shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+  --shadow-lift: 0 18px 40px rgba(15, 23, 42, 0.14);
+}
+
+/* 3. Base elements */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.component-container {
+  width: 100%;
+  max-width: 1040px;
+}
+
+/* ----------------------------------------------------------
+   4. Section header
+   ---------------------------------------------------------- */
+.pricing-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pricing-header h1 {
+  margin-top: 0.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  max-width: 34rem;
+  margin: 0.75rem auto 1.75rem;
+  color: var(--muted);
+}
+
+/* ----------------------------------------------------------
+   5. Billing toggle pill (inline-flex)
+   ---------------------------------------------------------- */
+.billing-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.billing-toggle label {
+  position: relative;
+  z-index: 1; /* sit above the sliding thumb */
+  flex: 1 1 0;
+  min-width: 8.5rem;
+  padding: 0.55rem 1rem;
+  white-space: nowrap;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+  cursor: pointer;
+}
+
+.save-tag {
+  margin-left: 0.25rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background-color: #dcfce7;
+  color: var(--success);
+  font-size: 0.7rem;
+}
+
+/* Sliding highlight behind the active label */
+.toggle-thumb {
+  position: absolute;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  left: 0.3rem;
+  width: calc(50% - 0.3rem);
+  border-radius: 999px;
+  background-color: var(--text);
+  transition: transform 0.3s ease;
+}
+
+/* ----------------------------------------------------------
+   6. CSS-only billing switch using the :checked radios
+   ---------------------------------------------------------- */
+.billing-input {
+  /* visually hidden but still focusable / announced */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+#billing-monthly:checked ~ .pricing-header label[for="billing-monthly"],
+#billing-annual:checked ~ .pricing-header label[for="billing-annual"] {
+  color: #ffffff;
+}
+
+#billing-annual:checked ~ .pricing-header .toggle-thumb {
+  transform: translateX(100%);
+}
+
+/* keyboard users see where focus is */
+#billing-monthly:focus-visible ~ .pricing-header label[for="billing-monthly"],
+#billing-annual:focus-visible ~ .pricing-header label[for="billing-annual"] {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.plan-price.price-annual {
+  display: none;
+}
+
+#billing-annual:checked ~ .pricing-grid .price-monthly {
+  display: none;
+}
+
+#billing-annual:checked ~ .pricing-grid .price-annual {
+  display: flex;
+}
+
+/* ----------------------------------------------------------
+   7. Grid container + card layout (mobile: 1 column)
+   ---------------------------------------------------------- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Select button stays flush at the bottom */
+  gap: 2rem;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.plan-name {
+  font-size: 1.15rem;
+}
+
+.plan-desc {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.plan-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.25rem;
+  margin: 1.25rem 0;
+}
+
+.amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.period {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.billed {
+  flex-basis: 100%;
+  margin-top: 0.35rem;
+  color: var(--success);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------
+   8. Feature lists & buttons
+   ---------------------------------------------------------- */
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.feature-list li::before {
+  content: "✓";
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.btn {
+  display: block;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-outline {
+  border: 1.5px solid var(--border);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-dark);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #c4b5fd;
+  outline-offset: 3px;
+}
+
+/* ----------------------------------------------------------
+   9. Featured "Pro Plan" card
+   ---------------------------------------------------------- */
+.price-card--featured {
+  order: -1; /* mobile: show the recommended plan first */
+  border: 2px solid var(--accent);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.price-card--featured .plan-name {
+  color: var(--accent);
+}
+
+/* ----------------------------------------------------------
+   10. Desktop breakpoint - three columns side by side
+   ---------------------------------------------------------- */
+@media (min-width: 850px) {
+  body {
+    padding: 4rem 2rem;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .price-card--featured {
+    order: 0; /* restore source order: Starter | Pro | Team */
+  }
+}
+
+/* ----------------------------------------------------------
+   11. Hover lift
+   ---------------------------------------------------------- */
+.price-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* ----------------------------------------------------------
+   12. Continuous glow pulse on the featured card
+   The glow lives on a pseudo-element and only its opacity is
+   animated, which keeps the animation on the GPU.
+   ---------------------------------------------------------- */
+.price-card--featured::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25), 0 0 32px 6px rgba(124, 58, 237, 0.35);
+  pointer-events: none;
+  animation: glow-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------------------
+   13. Accessibility - respect reduced-motion preference
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

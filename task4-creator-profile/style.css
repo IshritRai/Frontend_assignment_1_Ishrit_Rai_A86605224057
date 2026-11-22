@@ -343,3 +343,30 @@ button {
     max-width: 26rem;
   }
 }
+
+/* ----------------------------------------------------------
+   11. Transitions & micro-interactions
+   ---------------------------------------------------------- */
+.avatar-ring {
+  transition: transform 0.25s ease;
+}
+
+.avatar-ring:hover {
+  transform: scale(1.05);
+}
+
+.btn {
+  transition: transform 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.highlight-ring {
+  transition: transform 0.2s ease;
+}
+
+.highlight:hover .highlight-ring {
+  transform: scale(1.06);
+}

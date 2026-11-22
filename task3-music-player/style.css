@@ -275,3 +275,43 @@ button {
   border-color: var(--border);
   background-color: rgba(255, 255, 255, 0.06);
 }
+
+/* ----------------------------------------------------------
+   8. Active track + equaliser badge
+   ---------------------------------------------------------- */
+.track--active {
+  border-color: rgba(34, 211, 238, 0.35);
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.14), rgba(168, 85, 247, 0.08));
+}
+
+.track--active .track-num {
+  color: var(--accent);
+}
+
+.now-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #05060f;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+}
+
+.eq i {
+  width: 2px;
+  height: 100%;
+  background-color: currentColor;
+  transform-origin: bottom;
+}

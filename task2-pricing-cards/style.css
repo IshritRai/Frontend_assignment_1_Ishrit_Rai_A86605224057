@@ -335,3 +335,15 @@ body {
     order: 0; /* restore source order: Starter | Pro | Team */
   }
 }
+
+/* ----------------------------------------------------------
+   11. Hover lift
+   ---------------------------------------------------------- */
+.price-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+}

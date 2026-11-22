@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Front-End Engineering Lab - Responsive UI Mini-Components">
+  <title>Responsive UI Mini-Components</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      padding: 3rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+    .component-container { width: 100%; max-width: 900px; }
+    header { margin-bottom: 2rem; }
+    .eyebrow { color: #4f46e5; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); line-height: 1.15; margin: .4rem 0 .6rem; }
+    header p:last-child { color: #64748b; }
+    .task-grid { list-style: none; display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .task-grid a {
+      display: flex; flex-direction: column; gap: .35rem; height: 100%;
+      padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 1rem;
+      background: #fff; color: inherit; text-decoration: none;
+      transition: transform .2s ease;
+    }
+    .task-grid a:hover { transform: translateY(-4px); }
+    .task-grid a:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 3px; }
+    .num { color: #4f46e5; font-weight: 800; font-size: .8rem; }
+    .task-grid h2 { font-size: 1.1rem; }
+    .task-grid p { color: #64748b; font-size: .9rem; }
+    @media (min-width: 768px) { .task-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <main class="component-container">
+    <header>
+      <p class="eyebrow">Front-End Engineering Lab</p>
+      <h1>Responsive UI Mini-Components</h1>
+      <p>Four mobile-first components built with HTML, CSS Grid, Flexbox, transitions and keyframe animations.</p>
+    </header>
+    <ul class="task-grid">
+      <li><a href="task1-product-card/"><span class="num">TASK 1</span><h2>Product Showcase Card</h2><p>1 column → 2-column grid at 768px, image zoom, button press.</p></a></li>
+      <li><a href="task2-pricing-cards/"><span class="num">TASK 2</span><h2>Responsive Pricing Cards</h2><p>CSS-only billing toggle, 3-column grid at 850px, glow pulse.</p></a></li>
+      <li><a href="task3-music-player/"><span class="num">TASK 3</span><h2>Music Player &amp; Playlist Shelf</h2><p>Dark mode, 200px | 1fr grid, spinning vinyl, sliding rows.</p></a></li>
+      <li><a href="task4-creator-profile/"><span class="num">TASK 4</span><h2>Creator Profile Header</h2><p>Centred stack → flex row, stats grid, scrolling highlights.</p></a></li>
+    </ul>
+  </main>
+</body>
+</html>

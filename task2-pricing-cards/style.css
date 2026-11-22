@@ -153,7 +153,7 @@ body {
   outline-offset: 2px;
 }
 
-.price-annual {
+.plan-price.price-annual {
   display: none;
 }
 

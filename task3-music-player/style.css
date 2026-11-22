@@ -315,3 +315,19 @@ button {
   background-color: currentColor;
   transform-origin: bottom;
 }
+
+/* ----------------------------------------------------------
+   9. Desktop breakpoint - fixed album column + fluid queue
+   ---------------------------------------------------------- */
+@media (min-width: 768px) {
+  .player {
+    grid-template-columns: 200px 1fr;
+    gap: 2.5rem;
+    padding: 2rem;
+    align-items: center;
+  }
+
+  .vinyl {
+    width: 100%;
+  }
+}

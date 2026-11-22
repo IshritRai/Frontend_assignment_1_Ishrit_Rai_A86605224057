@@ -275,3 +275,16 @@ body {
   outline: 3px solid #a5b4fc;
   outline-offset: 3px;
 }
+
+/* ----------------------------------------------------------
+   11. Accessibility - respect reduced-motion preference
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

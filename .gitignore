@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+
+# Local tooling / build output
+venv/
+.venv/
+__pycache__/
+*.log

@@ -347,3 +347,29 @@ body {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lift);
 }
+
+/* ----------------------------------------------------------
+   12. Continuous glow pulse on the featured card
+   The glow lives on a pseudo-element and only its opacity is
+   animated, which keeps the animation on the GPU.
+   ---------------------------------------------------------- */
+.price-card--featured::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25), 0 0 32px 6px rgba(124, 58, 237, 0.35);
+  pointer-events: none;
+  animation: glow-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

@@ -305,3 +305,41 @@ button {
 .highlight--new .highlight-ring {
   background: var(--border);
 }
+
+/* ----------------------------------------------------------
+   10. Desktop breakpoint - avatar left, details right
+   ---------------------------------------------------------- */
+@media (min-width: 768px) {
+  .profile-card {
+    padding: 2.5rem;
+  }
+
+  .profile-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .profile-details {
+    align-items: stretch;
+  }
+
+  .profile-top {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .profile-actions {
+    width: auto;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .stats {
+    max-width: 26rem;
+  }
+}

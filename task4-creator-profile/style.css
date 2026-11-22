@@ -129,3 +129,45 @@ button {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* ----------------------------------------------------------
+   6. Follow / Message - equal width side by side
+   ---------------------------------------------------------- */
+.profile-actions {
+  display: flex;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.btn {
+  flex: 1; /* share the row equally on mobile */
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.65rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.btn-follow {
+  border: none;
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-follow:hover {
+  background-color: var(--accent-dark);
+}
+
+.btn-message {
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.btn-message:hover {
+  background-color: var(--border);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #fda4af;
+  outline-offset: 2px;
+}

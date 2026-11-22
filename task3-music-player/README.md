@@ -19,3 +19,13 @@ Open [`index.html`](index.html) in a browser and resize the window.
 Extras: vinyl drawn purely with CSS gradients, animated equaliser bars
 (`scaleY` keyframes), progress fill via `scaleX`, accessible icon buttons and
 `prefers-reduced-motion` support.
+
+## Screenshots
+
+| Desktop | Mobile (390px) |
+|---------|----------------|
+| ![Desktop view](screenshots/desktop.png) | ![Mobile view](screenshots/mobile.png) |
+
+Interaction state — playlist row slide on hover:
+
+![Interaction state](screenshots/desktop-interaction.png)

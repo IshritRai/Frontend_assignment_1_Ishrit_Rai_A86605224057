@@ -1,0 +1,418 @@
+/* ==========================================================
+   Task 3 - Music Player & Playlist Shelf (dark mode)
+   Mobile-first: player and queue stack in one column and
+   become a 200px | 1fr grid at @media (min-width: 768px).
+   ========================================================== */
+
+/* 1. Box Model Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Design tokens (dark theme) */
+:root {
+  --bg: #05060f;
+  --surface: #0f1123;
+  --surface-2: #171a33;
+  --text: #f1f5f9;
+  --muted: #8b93b5;
+  --border: rgba(148, 163, 184, 0.14);
+  --accent: #22d3ee;
+  --accent-2: #a855f7;
+  --radius: 1.5rem;
+}
+
+/* 3. Base elements */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(168, 85, 247, 0.18), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(34, 211, 238, 0.14), transparent 40%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.component-container {
+  width: 100%;
+  max-width: 760px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ----------------------------------------------------------
+   4. Player shell - mobile: single column stack
+   ---------------------------------------------------------- */
+.player {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.now-playing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.track-name {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.artist {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ----------------------------------------------------------
+   5. Vinyl disc
+   ---------------------------------------------------------- */
+.vinyl {
+  position: relative;
+  width: min(70vw, 200px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 30deg, rgba(255, 255, 255, 0.12), transparent 18%, transparent 50%, rgba(255, 255, 255, 0.08) 62%, transparent 75%),
+    repeating-radial-gradient(circle, #111 0 2px, #1c1c24 2px 4px);
+  box-shadow: 0 0 0 4px #0b0c18, 0 18px 40px rgba(0, 0, 0, 0.6), 0 0 45px rgba(168, 85, 247, 0.25);
+}
+
+.vinyl-label {
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-2) 0 50%, var(--accent) 50% 100%);
+}
+
+/* spindle hole */
+.vinyl-label::after {
+  content: "";
+  position: absolute;
+  inset: 42%;
+  border-radius: 50%;
+  background-color: var(--bg);
+}
+
+/* ----------------------------------------------------------
+   6. Progress bar & playback controls (flex + gap)
+   ---------------------------------------------------------- */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-track {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background-color: rgba(148, 163, 184, 0.2);
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  transform: scaleX(0.38);
+  transform-origin: left;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.control {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: var(--muted);
+}
+
+.control svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.control:hover {
+  color: var(--text);
+}
+
+.control--play {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: #05060f;
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.35);
+}
+
+.control--play svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.control--play:hover {
+  color: #05060f;
+}
+
+.control:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ----------------------------------------------------------
+   7. Up Next queue - flex rows (title left, duration right)
+   ---------------------------------------------------------- */
+.queue {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.queue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.queue-header h2 {
+  font-size: 1rem;
+}
+
+.queue-count {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.track-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.85rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.track-title {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.track-num {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.track-duration {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.track:hover {
+  border-color: var(--border);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ----------------------------------------------------------
+   8. Active track + equaliser badge
+   ---------------------------------------------------------- */
+.track--active {
+  border-color: rgba(34, 211, 238, 0.35);
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.14), rgba(168, 85, 247, 0.08));
+}
+
+.track--active .track-num {
+  color: var(--accent);
+}
+
+.now-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #05060f;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+}
+
+.eq i {
+  width: 2px;
+  height: 100%;
+  background-color: currentColor;
+  transform-origin: bottom;
+}
+
+/* ----------------------------------------------------------
+   9. Desktop breakpoint - fixed album column + fluid queue
+   ---------------------------------------------------------- */
+@media (min-width: 768px) {
+  .player {
+    grid-template-columns: 200px 1fr;
+    gap: 2.5rem;
+    padding: 2rem;
+    align-items: center;
+  }
+
+  .vinyl {
+    width: 100%;
+  }
+
+  /* five controls must fit inside the fixed 200px column */
+  .controls {
+    gap: 0.15rem;
+  }
+
+  .control {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .control--play {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* ----------------------------------------------------------
+   10. Animations
+   ---------------------------------------------------------- */
+.vinyl {
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.track {
+  transition: transform 0.2s ease;
+}
+
+.track:hover {
+  transform: translateX(6px);
+}
+
+.control {
+  transition: transform 0.15s ease;
+}
+
+.control:active {
+  transform: scale(0.9);
+}
+
+/* Equaliser bars bounce while the track plays */
+.eq i {
+  animation: eq-bounce 0.9s ease-in-out infinite;
+}
+
+.eq i:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.eq i:nth-child(3) {
+  animation-delay: -0.6s;
+}
+
+@keyframes eq-bounce {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* ----------------------------------------------------------
+   11. Accessibility - respect reduced-motion preference
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

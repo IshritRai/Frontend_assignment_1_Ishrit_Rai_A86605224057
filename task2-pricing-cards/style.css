@@ -1,10 +1,4 @@
-/* ==========================================================
-   Task 2 - Responsive Pricing Cards
-   Mobile-first: cards stack in one column by default and
-   switch to a three-column grid at @media (min-width: 850px).
-   ========================================================== */
-
-/* 1. Box Model Reset */
+/* reset */
 *,
 *::before,
 *::after {
@@ -13,7 +7,7 @@
   padding: 0;
 }
 
-/* 2. Design tokens */
+/* variables */
 :root {
   --bg: #f8fafc;
   --surface: #ffffff;
@@ -29,7 +23,6 @@
   --shadow-lift: 0 18px 40px rgba(15, 23, 42, 0.14);
 }
 
-/* 3. Base elements */
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   background-color: var(--bg);
@@ -46,9 +39,7 @@ body {
   max-width: 1040px;
 }
 
-/* ----------------------------------------------------------
-   4. Section header
-   ---------------------------------------------------------- */
+/* header */
 .pricing-header {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -75,9 +66,7 @@ body {
   color: var(--muted);
 }
 
-/* ----------------------------------------------------------
-   5. Billing toggle pill (inline-flex)
-   ---------------------------------------------------------- */
+/* monthly / annual toggle */
 .billing-toggle {
   position: relative;
   display: inline-flex;
@@ -91,7 +80,7 @@ body {
 
 .billing-toggle label {
   position: relative;
-  z-index: 1; /* sit above the sliding thumb */
+  z-index: 1; /* above the thumb */
   flex: 1 1 0;
   min-width: 8.5rem;
   padding: 0.55rem 1rem;
@@ -113,7 +102,7 @@ body {
   font-size: 0.7rem;
 }
 
-/* Sliding highlight behind the active label */
+/* dark pill that slides across */
 .toggle-thumb {
   position: absolute;
   top: 0.3rem;
@@ -125,11 +114,9 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* ----------------------------------------------------------
-   6. CSS-only billing switch using the :checked radios
-   ---------------------------------------------------------- */
+/* switch prices using the radio buttons (no js) */
 .billing-input {
-  /* visually hidden but still focusable / announced */
+  /* hidden but still accessible */
   position: absolute;
   width: 1px;
   height: 1px;
@@ -147,7 +134,6 @@ body {
   transform: translateX(100%);
 }
 
-/* keyboard users see where focus is */
 #billing-monthly:focus-visible ~ .pricing-header label[for="billing-monthly"],
 #billing-annual:focus-visible ~ .pricing-header label[for="billing-annual"] {
   outline: 2px solid var(--accent);
@@ -166,9 +152,7 @@ body {
   display: flex;
 }
 
-/* ----------------------------------------------------------
-   7. Grid container + card layout (mobile: 1 column)
-   ---------------------------------------------------------- */
+/* cards */
 .pricing-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -179,7 +163,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Select button stays flush at the bottom */
+  justify-content: space-between; /* keeps the button at the bottom */
   gap: 2rem;
   padding: 1.75rem;
   border: 1px solid var(--border);
@@ -226,9 +210,7 @@ body {
   font-weight: 600;
 }
 
-/* ----------------------------------------------------------
-   8. Feature lists & buttons
-   ---------------------------------------------------------- */
+/* features + buttons */
 .feature-list {
   list-style: none;
   display: flex;
@@ -291,11 +273,9 @@ body {
   outline-offset: 3px;
 }
 
-/* ----------------------------------------------------------
-   9. Featured "Pro Plan" card
-   ---------------------------------------------------------- */
+/* pro card */
 .price-card--featured {
-  order: -1; /* mobile: show the recommended plan first */
+  order: -1; /* pro first on mobile */
   border: 2px solid var(--accent);
 }
 
@@ -318,9 +298,7 @@ body {
   color: var(--accent);
 }
 
-/* ----------------------------------------------------------
-   10. Desktop breakpoint - three columns side by side
-   ---------------------------------------------------------- */
+/* desktop */
 @media (min-width: 850px) {
   body {
     padding: 4rem 2rem;
@@ -333,13 +311,11 @@ body {
   }
 
   .price-card--featured {
-    order: 0; /* restore source order: Starter | Pro | Team */
+    order: 0; /* normal order again */
   }
 }
 
-/* ----------------------------------------------------------
-   11. Hover lift
-   ---------------------------------------------------------- */
+/* hover */
 .price-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -349,11 +325,7 @@ body {
   box-shadow: var(--shadow-lift);
 }
 
-/* ----------------------------------------------------------
-   12. Continuous glow pulse on the featured card
-   The glow lives on a pseudo-element and only its opacity is
-   animated, which keeps the animation on the GPU.
-   ---------------------------------------------------------- */
+/* glow on the pro card - only opacity animates so it stays smooth */
 .price-card--featured::after {
   content: "";
   position: absolute;
@@ -375,9 +347,7 @@ body {
   }
 }
 
-/* ----------------------------------------------------------
-   13. Accessibility - respect reduced-motion preference
-   ---------------------------------------------------------- */
+/* turn off animations if the user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

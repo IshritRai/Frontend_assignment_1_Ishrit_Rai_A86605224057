@@ -74,3 +74,52 @@ body {
   margin: 0.75rem auto 1.75rem;
   color: var(--muted);
 }
+
+/* ----------------------------------------------------------
+   5. Billing toggle pill (inline-flex)
+   ---------------------------------------------------------- */
+.billing-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.billing-toggle label {
+  position: relative;
+  z-index: 1; /* sit above the sliding thumb */
+  flex: 1 1 0;
+  min-width: 7.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+  cursor: pointer;
+}
+
+.save-tag {
+  margin-left: 0.25rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background-color: #dcfce7;
+  color: var(--success);
+  font-size: 0.7rem;
+}
+
+/* Sliding highlight behind the active label */
+.toggle-thumb {
+  position: absolute;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  left: 0.3rem;
+  width: calc(50% - 0.3rem);
+  border-radius: 999px;
+  background-color: var(--text);
+  transition: transform 0.3s ease;
+}

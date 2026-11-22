@@ -124,3 +124,84 @@ button {
   border-radius: 50%;
   background-color: var(--bg);
 }
+
+/* ----------------------------------------------------------
+   6. Progress bar & playback controls (flex + gap)
+   ---------------------------------------------------------- */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-track {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background-color: rgba(148, 163, 184, 0.2);
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  transform: scaleX(0.38);
+  transform-origin: left;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.control {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: var(--muted);
+}
+
+.control svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.control:hover {
+  color: var(--text);
+}
+
+.control--play {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: #05060f;
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.35);
+}
+
+.control--play svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.control--play:hover {
+  color: #05060f;
+}
+
+.control:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

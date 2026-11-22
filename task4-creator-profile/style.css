@@ -203,3 +203,32 @@ button {
   font-size: 0.75rem;
   text-transform: lowercase;
 }
+
+/* ----------------------------------------------------------
+   8. Bio
+   ---------------------------------------------------------- */
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.92rem;
+}
+
+.display-name {
+  font-weight: 700;
+}
+
+.role {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.website {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.website:hover {
+  text-decoration: underline;
+}

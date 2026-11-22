@@ -29,3 +29,9 @@ Extras: wrapping feature tags (`flex-wrap`), `:focus-visible` outline and a
 Interaction state — image zoom on hover:
 
 ![Interaction state](screenshots/desktop-interaction.png)
+
+## Image credit
+
+Product photo by [Workperch](https://unsplash.com/@workperch) on
+[Unsplash](https://unsplash.com/photos/m-jcgSZlLS0), used under the
+[Unsplash License](https://unsplash.com/license).

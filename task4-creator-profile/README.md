@@ -31,3 +31,10 @@ strip, focus-visible outlines and `prefers-reduced-motion` support.
 Interaction state — avatar scale on hover:
 
 ![Interaction state](screenshots/desktop-interaction.png)
+
+## Image credit
+
+Avatar photo by [LinkedIn Sales Solutions](https://unsplash.com/@linkedinsalesnavigator)
+on [Unsplash](https://unsplash.com/photos/pAtA8xe_iVM), used under the
+[Unsplash License](https://unsplash.com/license). "Alex Rivera" is a fictional
+profile created for this exercise.

@@ -205,3 +205,73 @@ button {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+
+/* ----------------------------------------------------------
+   7. Up Next queue - flex rows (title left, duration right)
+   ---------------------------------------------------------- */
+.queue {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.queue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.queue-header h2 {
+  font-size: 1rem;
+}
+
+.queue-count {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.track-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.85rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.track-title {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.track-num {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.track-duration {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.track:hover {
+  border-color: var(--border);
+  background-color: rgba(255, 255, 255, 0.06);
+}

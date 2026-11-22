@@ -262,3 +262,16 @@ body {
 .product-card:hover .product-media img {
   transform: scale(1.04);
 }
+
+.btn-add {
+  transition: transform 0.15s ease;
+}
+
+.btn-add:active {
+  transform: scale(0.96);
+}
+
+.btn-add:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}

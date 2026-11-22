@@ -289,3 +289,30 @@ body {
   outline: 3px solid #c4b5fd;
   outline-offset: 3px;
 }
+
+/* ----------------------------------------------------------
+   9. Featured "Pro Plan" card
+   ---------------------------------------------------------- */
+.price-card--featured {
+  order: -1; /* mobile: show the recommended plan first */
+  border: 2px solid var(--accent);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.price-card--featured .plan-name {
+  color: var(--accent);
+}

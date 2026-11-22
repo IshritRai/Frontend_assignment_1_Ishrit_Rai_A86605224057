@@ -20,3 +20,13 @@ Click *Annual* to see discounted prices — the toggle is built with
 
 Extras: Pro card is listed first on mobile (`order: -1`), sliding toggle thumb
 (`translateX`), keyboard focus styles and `prefers-reduced-motion` support.
+
+## Screenshots
+
+| Desktop | Mobile (390px) |
+|---------|----------------|
+| ![Desktop view](screenshots/desktop.png) | ![Mobile view](screenshots/mobile.png) |
+
+Interaction state — annual billing selected + card hover lift:
+
+![Interaction state](screenshots/desktop-interaction.png)

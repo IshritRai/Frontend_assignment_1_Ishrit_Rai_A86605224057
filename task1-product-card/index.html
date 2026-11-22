@@ -9,6 +9,51 @@
 </head>
 <body>
   <main class="component-container">
+    <article class="product-card" aria-labelledby="product-title">
+
+      <!-- Left column on desktop / top on mobile -->
+      <figure class="product-media">
+        <span class="badge">Popular</span>
+        <img src="assets/desk-mat.svg"
+             alt="Charcoal felt desk mat with a keyboard, mouse, coffee mug and plant"
+             width="600" height="450">
+      </figure>
+
+      <!-- Right column on desktop / bottom on mobile -->
+      <div class="product-details">
+        <div class="product-info">
+          <div class="meta-row">
+            <span class="category">Workspace</span>
+            <span class="rating" aria-label="Rated 4.9 out of 5">4.9 <span aria-hidden="true">★</span></span>
+          </div>
+
+          <h1 id="product-title" class="product-title">Desk Workspace Mat</h1>
+
+          <p class="product-description">
+            An extra-large felt and vegan-leather mat that protects your desk,
+            keeps your keyboard and mouse in place and makes any setup feel calm.
+          </p>
+
+          <h2 class="feature-heading">Features</h2>
+          <ul class="feature-list">
+            <li>Water-resistant</li>
+            <li>Non-slip base</li>
+            <li>90 × 40 cm</li>
+            <li>Stitched edges</li>
+            <li>Reversible</li>
+          </ul>
+        </div>
+
+        <div class="purchase-shelf">
+          <p class="price">
+            <span class="price-amount">₹1,499</span>
+            <span class="price-note">Tax included</span>
+          </p>
+          <button class="btn-add" type="button">Add to Bag</button>
+        </div>
+      </div>
+
+    </article>
   </main>
 </body>
 </html>

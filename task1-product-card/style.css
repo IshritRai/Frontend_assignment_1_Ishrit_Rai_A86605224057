@@ -175,3 +175,48 @@ body {
   font-size: 0.8rem;
   color: #334155;
 }
+
+/* ----------------------------------------------------------
+   8. Pricing / button shelf
+   ---------------------------------------------------------- */
+.purchase-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-amount {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.price-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.btn-add {
+  width: 100%; /* full-width on mobile */
+  padding: 0.9rem 1.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: var(--accent-dark);
+}

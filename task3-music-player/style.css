@@ -348,3 +348,19 @@ button {
     transform: rotate(360deg);
   }
 }
+
+.track {
+  transition: transform 0.2s ease;
+}
+
+.track:hover {
+  transform: translateX(6px);
+}
+
+.control {
+  transition: transform 0.15s ease;
+}
+
+.control:active {
+  transform: scale(0.9);
+}

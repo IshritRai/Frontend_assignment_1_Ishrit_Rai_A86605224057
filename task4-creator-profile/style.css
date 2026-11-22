@@ -1,10 +1,4 @@
-/* ==========================================================
-   Task 4 - Creator Profile Header & Stats Card
-   Mobile-first: everything centres in a vertical stack; at
-   @media (min-width: 768px) the header becomes a flex row.
-   ========================================================== */
-
-/* 1. Box Model Reset */
+/* reset */
 *,
 *::before,
 *::after {
@@ -13,7 +7,7 @@
   padding: 0;
 }
 
-/* 2. Design tokens */
+/* variables */
 :root {
   --bg: #f8fafc;
   --surface: #ffffff;
@@ -27,7 +21,6 @@
   --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
-/* 3. Base elements */
 img {
   display: block;
   max-width: 100%;
@@ -55,9 +48,7 @@ button {
   cursor: pointer;
 }
 
-/* ----------------------------------------------------------
-   4. Card + header - mobile: centred vertical stack
-   ---------------------------------------------------------- */
+/* profile card - centred on mobile */
 .profile-card {
   padding: 2rem 1.25rem;
   border: 1px solid var(--border);
@@ -91,9 +82,7 @@ button {
   width: 100%;
 }
 
-/* ----------------------------------------------------------
-   5. Avatar with story ring
-   ---------------------------------------------------------- */
+/* avatar */
 .avatar-ring {
   flex-shrink: 0;
   padding: 4px;
@@ -106,7 +95,7 @@ button {
   height: 120px;
   border: 4px solid var(--surface);
   border-radius: 50%;
-  object-fit: cover; /* keep the photo circular without distortion */
+  object-fit: cover;
 }
 
 .username {
@@ -131,9 +120,7 @@ button {
   stroke-linejoin: round;
 }
 
-/* ----------------------------------------------------------
-   6. Follow / Message - equal width side by side
-   ---------------------------------------------------------- */
+/* buttons */
 .profile-actions {
   display: flex;
   gap: 0.6rem;
@@ -141,7 +128,7 @@ button {
 }
 
 .btn {
-  flex: 1; /* share the row equally on mobile */
+  flex: 1; /* equal width */
   padding: 0.65rem 1.25rem;
   border-radius: 0.65rem;
   font-weight: 700;
@@ -173,9 +160,7 @@ button {
   outline-offset: 2px;
 }
 
-/* ----------------------------------------------------------
-   7. Stats bar - 3 equal grid boxes
-   ---------------------------------------------------------- */
+/* stats */
 .stats {
   list-style: none;
   display: grid;
@@ -205,9 +190,6 @@ button {
   text-transform: lowercase;
 }
 
-/* ----------------------------------------------------------
-   8. Bio
-   ---------------------------------------------------------- */
 .bio {
   display: flex;
   flex-direction: column;
@@ -234,9 +216,7 @@ button {
   text-decoration: underline;
 }
 
-/* ----------------------------------------------------------
-   9. Story highlights - horizontal scrolling flex strip
-   ---------------------------------------------------------- */
+/* highlights (scrolls sideways) */
 .highlights {
   margin-top: 2rem;
   padding-top: 1.5rem;
@@ -263,7 +243,7 @@ button {
 }
 
 .highlight {
-  flex-shrink: 0; /* circles keep their size instead of squashing */
+  flex-shrink: 0; /* don't let them shrink */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -307,9 +287,7 @@ button {
   background: var(--border);
 }
 
-/* ----------------------------------------------------------
-   10. Desktop breakpoint - avatar left, details right
-   ---------------------------------------------------------- */
+/* desktop */
 @media (min-width: 768px) {
   .profile-card {
     padding: 2.5rem;
@@ -345,9 +323,7 @@ button {
   }
 }
 
-/* ----------------------------------------------------------
-   11. Transitions & micro-interactions
-   ---------------------------------------------------------- */
+/* hover effects */
 .avatar-ring {
   transition: transform 0.25s ease;
 }
@@ -372,9 +348,7 @@ button {
   transform: scale(1.06);
 }
 
-/* ----------------------------------------------------------
-   12. Accessibility - respect reduced-motion preference
-   ---------------------------------------------------------- */
+/* turn off animations if the user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

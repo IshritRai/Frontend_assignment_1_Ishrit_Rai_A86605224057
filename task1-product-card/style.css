@@ -106,3 +106,19 @@ body {
   color: var(--muted);
   font-size: 0.95rem;
 }
+
+/* ----------------------------------------------------------
+   5. Details container - vertical flex distribution
+   ---------------------------------------------------------- */
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}

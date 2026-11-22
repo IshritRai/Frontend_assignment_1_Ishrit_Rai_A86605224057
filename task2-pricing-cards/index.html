@@ -8,7 +8,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="component-container">
+  <main class="component-container pricing">
+
+    <!-- Hidden radios drive the Monthly / Annual toggle with pure CSS (:checked ~) -->
+    <input class="billing-input" type="radio" name="billing" id="billing-monthly" checked>
+    <input class="billing-input" type="radio" name="billing" id="billing-annual">
+
+    <header class="pricing-header">
+      <p class="eyebrow">Pricing</p>
+      <h1>Plans that grow with you</h1>
+      <p class="subtitle">Start for free, upgrade when you need more power. Cancel anytime.</p>
+
+      <div class="billing-toggle" role="group" aria-label="Billing period">
+        <span class="toggle-thumb" aria-hidden="true"></span>
+        <label for="billing-monthly">Monthly</label>
+        <label for="billing-annual">Annual <span class="save-tag">-20%</span></label>
+      </div>
+    </header>
+
   </main>
 </body>
 </html>

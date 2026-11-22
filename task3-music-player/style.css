@@ -1,10 +1,4 @@
-/* ==========================================================
-   Task 3 - Music Player & Playlist Shelf (dark mode)
-   Mobile-first: player and queue stack in one column and
-   become a 200px | 1fr grid at @media (min-width: 768px).
-   ========================================================== */
-
-/* 1. Box Model Reset */
+/* reset */
 *,
 *::before,
 *::after {
@@ -13,7 +7,7 @@
   padding: 0;
 }
 
-/* 2. Design tokens (dark theme) */
+/* dark theme colours */
 :root {
   --bg: #05060f;
   --surface: #0f1123;
@@ -26,7 +20,6 @@
   --radius: 1.5rem;
 }
 
-/* 3. Base elements */
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   background:
@@ -55,9 +48,7 @@ button {
   cursor: pointer;
 }
 
-/* ----------------------------------------------------------
-   4. Player shell - mobile: single column stack
-   ---------------------------------------------------------- */
+/* player - stacked on mobile */
 .player {
   display: grid;
   grid-template-columns: 1fr;
@@ -95,9 +86,7 @@ button {
   font-size: 0.9rem;
 }
 
-/* ----------------------------------------------------------
-   5. Vinyl disc
-   ---------------------------------------------------------- */
+/* vinyl */
 .vinyl {
   position: relative;
   width: min(70vw, 200px);
@@ -116,7 +105,7 @@ button {
   background: linear-gradient(135deg, var(--accent-2) 0 50%, var(--accent) 50% 100%);
 }
 
-/* spindle hole */
+/* hole in the middle */
 .vinyl-label::after {
   content: "";
   position: absolute;
@@ -125,9 +114,7 @@ button {
   background-color: var(--bg);
 }
 
-/* ----------------------------------------------------------
-   6. Progress bar & playback controls (flex + gap)
-   ---------------------------------------------------------- */
+/* progress bar + controls */
 .progress {
   display: flex;
   align-items: center;
@@ -206,9 +193,7 @@ button {
   outline-offset: 3px;
 }
 
-/* ----------------------------------------------------------
-   7. Up Next queue - flex rows (title left, duration right)
-   ---------------------------------------------------------- */
+/* up next list */
 .queue {
   display: flex;
   flex-direction: column;
@@ -276,9 +261,7 @@ button {
   background-color: rgba(255, 255, 255, 0.06);
 }
 
-/* ----------------------------------------------------------
-   8. Active track + equaliser badge
-   ---------------------------------------------------------- */
+/* currently playing track */
 .track--active {
   border-color: rgba(34, 211, 238, 0.35);
   background: linear-gradient(90deg, rgba(34, 211, 238, 0.14), rgba(168, 85, 247, 0.08));
@@ -316,9 +299,7 @@ button {
   transform-origin: bottom;
 }
 
-/* ----------------------------------------------------------
-   9. Desktop breakpoint - fixed album column + fluid queue
-   ---------------------------------------------------------- */
+/* desktop */
 @media (min-width: 768px) {
   .player {
     grid-template-columns: 200px 1fr;
@@ -331,7 +312,7 @@ button {
     width: 100%;
   }
 
-  /* five controls must fit inside the fixed 200px column */
+  /* make the buttons fit in 200px */
   .controls {
     gap: 0.15rem;
   }
@@ -347,9 +328,7 @@ button {
   }
 }
 
-/* ----------------------------------------------------------
-   10. Animations
-   ---------------------------------------------------------- */
+/* animations */
 .vinyl {
   animation: spin 6s linear infinite;
 }
@@ -380,7 +359,6 @@ button {
   transform: scale(0.9);
 }
 
-/* Equaliser bars bounce while the track plays */
 .eq i {
   animation: eq-bounce 0.9s ease-in-out infinite;
 }
@@ -404,9 +382,7 @@ button {
   }
 }
 
-/* ----------------------------------------------------------
-   11. Accessibility - respect reduced-motion preference
-   ---------------------------------------------------------- */
+/* turn off animations if the user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

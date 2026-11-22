@@ -147,3 +147,31 @@ body {
 .rating span {
   color: var(--star);
 }
+
+/* ----------------------------------------------------------
+   7. Feature tags (wrapping flex row)
+   ---------------------------------------------------------- */
+.feature-heading {
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.feature-list li {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: var(--bg);
+  font-size: 0.8rem;
+  color: #334155;
+}

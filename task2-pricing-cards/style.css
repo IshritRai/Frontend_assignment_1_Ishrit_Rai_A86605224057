@@ -164,3 +164,63 @@ body {
 #billing-annual:checked ~ .pricing-grid .price-annual {
   display: flex;
 }
+
+/* ----------------------------------------------------------
+   7. Grid container + card layout (mobile: 1 column)
+   ---------------------------------------------------------- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Select button stays flush at the bottom */
+  gap: 2rem;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.plan-name {
+  font-size: 1.15rem;
+}
+
+.plan-desc {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.plan-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.25rem;
+  margin: 1.25rem 0;
+}
+
+.amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.period {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.billed {
+  flex-basis: 100%;
+  margin-top: 0.35rem;
+  color: var(--success);
+  font-size: 0.8rem;
+  font-weight: 600;
+}

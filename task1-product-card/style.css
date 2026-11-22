@@ -1,0 +1,290 @@
+/* ==========================================================
+   Task 1 - Product Showcase Card
+   Mobile-first: base rules target small screens and the
+   @media (min-width: 768px) block layers on the desktop grid.
+   ========================================================== */
+
+/* 1. Box Model Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Design tokens */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #4f46e5;
+  --accent-dark: #4338ca;
+  --star: #f59e0b;
+  --radius: 1.25rem;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* 3. Base elements */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.component-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* ----------------------------------------------------------
+   4. Card - mobile base (single column stack)
+   ---------------------------------------------------------- */
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.product-media {
+  position: relative;
+  overflow: hidden; /* keeps the zoomed image inside the frame */
+  aspect-ratio: 4 / 3;
+  background-color: #e0e7ff;
+}
+
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* never crop the product on tall desktop frames */
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background-color: var(--text);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.product-details {
+  padding: 1.5rem;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.product-description {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ----------------------------------------------------------
+   5. Details container - vertical flex distribution
+   ---------------------------------------------------------- */
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ----------------------------------------------------------
+   6. Category / rating row
+   ---------------------------------------------------------- */
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.category {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rating {
+  font-weight: 700;
+}
+
+.rating span {
+  color: var(--star);
+}
+
+/* ----------------------------------------------------------
+   7. Feature tags (wrapping flex row)
+   ---------------------------------------------------------- */
+.feature-heading {
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.feature-list li {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: var(--bg);
+  font-size: 0.8rem;
+  color: #334155;
+}
+
+/* ----------------------------------------------------------
+   8. Pricing / button shelf
+   ---------------------------------------------------------- */
+.purchase-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-amount {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.price-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.btn-add {
+  width: 100%; /* full-width on mobile */
+  padding: 0.9rem 1.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: var(--accent-dark);
+}
+
+/* ----------------------------------------------------------
+   9. Desktop breakpoint - two equal grid columns
+   ---------------------------------------------------------- */
+@media (min-width: 768px) {
+  body {
+    padding: 3rem 2rem;
+  }
+
+  .product-card {
+    grid-template-columns: 1fr 1fr; /* image left, details right */
+  }
+
+  .product-media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .product-details {
+    padding: 2rem;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .btn-add {
+    width: auto;
+  }
+}
+
+/* ----------------------------------------------------------
+   10. Transitions & micro-interactions
+   (only transform is animated -> GPU friendly)
+   ---------------------------------------------------------- */
+.product-media img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-media img {
+  transform: scale(1.04);
+}
+
+.btn-add {
+  transition: transform 0.15s ease;
+}
+
+.btn-add:active {
+  transform: scale(0.96);
+}
+
+.btn-add:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}
+
+/* ----------------------------------------------------------
+   11. Accessibility - respect reduced-motion preference
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

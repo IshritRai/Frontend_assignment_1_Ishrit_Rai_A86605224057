@@ -28,7 +28,7 @@ and a desktop width.
 ├── task1-product-card/
 │   ├── index.html
 │   ├── style.css
-│   ├── assets/desk-mat.svg
+│   ├── assets/desk-mat.jpg
 │   └── screenshots/
 ├── task2-pricing-cards/
 │   ├── index.html
@@ -41,7 +41,7 @@ and a desktop width.
 └── task4-creator-profile/
     ├── index.html
     ├── style.css
-    ├── assets/avatar.svg
+    ├── assets/avatar.jpg
     └── screenshots/
 ```
 

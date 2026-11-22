@@ -171,3 +171,35 @@ button {
   outline: 3px solid #fda4af;
   outline-offset: 2px;
 }
+
+/* ----------------------------------------------------------
+   7. Stats bar - 3 equal grid boxes
+   ---------------------------------------------------------- */
+.stats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background-color: var(--bg);
+}
+
+.stat strong {
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: lowercase;
+}

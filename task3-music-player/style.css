@@ -94,3 +94,33 @@ button {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+/* ----------------------------------------------------------
+   5. Vinyl disc
+   ---------------------------------------------------------- */
+.vinyl {
+  position: relative;
+  width: min(70vw, 200px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 30deg, rgba(255, 255, 255, 0.12), transparent 18%, transparent 50%, rgba(255, 255, 255, 0.08) 62%, transparent 75%),
+    repeating-radial-gradient(circle, #111 0 2px, #1c1c24 2px 4px);
+  box-shadow: 0 0 0 4px #0b0c18, 0 18px 40px rgba(0, 0, 0, 0.6), 0 0 45px rgba(168, 85, 247, 0.25);
+}
+
+.vinyl-label {
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-2) 0 50%, var(--accent) 50% 100%);
+}
+
+/* spindle hole */
+.vinyl-label::after {
+  content: "";
+  position: absolute;
+  inset: 42%;
+  border-radius: 50%;
+  background-color: var(--bg);
+}

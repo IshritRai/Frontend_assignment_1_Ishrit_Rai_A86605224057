@@ -1,10 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-labelledby="title">
   <title id="title">Desk workspace mat with keyboard, mouse, mug and plant</title>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#e0e7ff"/>
-      <stop offset="1" stop-color="#c7d2fe"/>
-    </linearGradient>
     <linearGradient id="mat" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#334155"/>
       <stop offset="1" stop-color="#1e293b"/>
@@ -17,8 +13,8 @@
     </filter>
   </defs>
 
-  <!-- backdrop -->
-  <rect width="600" height="450" fill="url(#bg)"/>
+  <!-- backdrop: oversized so it fills any extra space when the image is letterboxed -->
+  <rect x="-600" y="-600" width="1800" height="1650" fill="#e0e7ff"/>
 
   <!-- the mat with a stitched edge -->
   <rect x="40" y="110" width="520" height="250" rx="22" fill="url(#mat)" filter="url(#shadow)"/>

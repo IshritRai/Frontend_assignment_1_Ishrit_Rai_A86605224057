@@ -90,3 +90,42 @@ button {
   gap: 1rem;
   width: 100%;
 }
+
+/* ----------------------------------------------------------
+   5. Avatar with story ring
+   ---------------------------------------------------------- */
+.avatar-ring {
+  flex-shrink: 0;
+  padding: 4px;
+  border-radius: 50%;
+  background: var(--ring);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border: 4px solid var(--surface);
+  border-radius: 50%;
+}
+
+.username {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.verified {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: #3b82f6;
+}
+
+.verified .tick {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

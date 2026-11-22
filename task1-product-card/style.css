@@ -1,0 +1,52 @@
+/* ==========================================================
+   Task 1 - Product Showcase Card
+   Mobile-first: base rules target small screens and the
+   @media (min-width: 768px) block layers on the desktop grid.
+   ========================================================== */
+
+/* 1. Box Model Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Design tokens */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #4f46e5;
+  --accent-dark: #4338ca;
+  --star: #f59e0b;
+  --radius: 1.25rem;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* 3. Base elements */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.component-container {
+  width: 100%;
+  max-width: 900px;
+}

@@ -93,8 +93,9 @@ body {
   position: relative;
   z-index: 1; /* sit above the sliding thumb */
   flex: 1 1 0;
-  min-width: 7.5rem;
+  min-width: 8.5rem;
   padding: 0.55rem 1rem;
+  white-space: nowrap;
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 600;

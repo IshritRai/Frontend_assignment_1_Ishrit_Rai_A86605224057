@@ -123,3 +123,44 @@ body {
   background-color: var(--text);
   transition: transform 0.3s ease;
 }
+
+/* ----------------------------------------------------------
+   6. CSS-only billing switch using the :checked radios
+   ---------------------------------------------------------- */
+.billing-input {
+  /* visually hidden but still focusable / announced */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+#billing-monthly:checked ~ .pricing-header label[for="billing-monthly"],
+#billing-annual:checked ~ .pricing-header label[for="billing-annual"] {
+  color: #ffffff;
+}
+
+#billing-annual:checked ~ .pricing-header .toggle-thumb {
+  transform: translateX(100%);
+}
+
+/* keyboard users see where focus is */
+#billing-monthly:focus-visible ~ .pricing-header label[for="billing-monthly"],
+#billing-annual:focus-visible ~ .pricing-header label[for="billing-annual"] {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.price-annual {
+  display: none;
+}
+
+#billing-annual:checked ~ .pricing-grid .price-monthly {
+  display: none;
+}
+
+#billing-annual:checked ~ .pricing-grid .price-annual {
+  display: flex;
+}

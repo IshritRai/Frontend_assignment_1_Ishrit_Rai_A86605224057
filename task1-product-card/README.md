@@ -19,3 +19,13 @@ DevTools → Device Toolbar) to see the layout switch.
 
 Extras: wrapping feature tags (`flex-wrap`), `:focus-visible` outline and a
 `prefers-reduced-motion` override.
+
+## Screenshots
+
+| Desktop | Mobile (390px) |
+|---------|----------------|
+| ![Desktop view](screenshots/desktop.png) | ![Mobile view](screenshots/mobile.png) |
+
+Interaction state — image zoom on hover:
+
+![Interaction state](screenshots/desktop-interaction.png)

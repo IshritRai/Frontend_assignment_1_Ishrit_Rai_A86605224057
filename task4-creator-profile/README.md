@@ -21,3 +21,13 @@ Open [`index.html`](index.html) in a browser and resize the window. Scroll the
 
 Extras: gradient story rings, verified badge, `scroll-snap` on the highlights
 strip, focus-visible outlines and `prefers-reduced-motion` support.
+
+## Screenshots
+
+| Desktop | Mobile (390px) |
+|---------|----------------|
+| ![Desktop view](screenshots/desktop.png) | ![Mobile view](screenshots/mobile.png) |
+
+Interaction state — avatar scale on hover:
+
+![Interaction state](screenshots/desktop-interaction.png)

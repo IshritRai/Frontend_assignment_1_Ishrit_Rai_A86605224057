@@ -1,10 +1,4 @@
-/* ==========================================================
-   Task 1 - Product Showcase Card
-   Mobile-first: base rules target small screens and the
-   @media (min-width: 768px) block layers on the desktop grid.
-   ========================================================== */
-
-/* 1. Box Model Reset */
+/* reset */
 *,
 *::before,
 *::after {
@@ -13,7 +7,7 @@
   padding: 0;
 }
 
-/* 2. Design tokens */
+/* variables */
 :root {
   --bg: #f8fafc;
   --surface: #ffffff;
@@ -27,7 +21,6 @@
   --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
-/* 3. Base elements */
 img {
   display: block;
   max-width: 100%;
@@ -51,9 +44,7 @@ body {
   max-width: 900px;
 }
 
-/* ----------------------------------------------------------
-   4. Card - mobile base (single column stack)
-   ---------------------------------------------------------- */
+/* card - mobile first, one column */
 .product-card {
   display: grid;
   grid-template-columns: 1fr;
@@ -66,7 +57,7 @@ body {
 
 .product-media {
   position: relative;
-  overflow: hidden; /* keeps the zoomed image inside the frame */
+  overflow: hidden; /* so the zoom doesn't spill out */
   aspect-ratio: 4 / 3;
   background-color: #e0e7ff;
 }
@@ -74,7 +65,7 @@ body {
 .product-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* photo fills the frame at every column height */
+  object-fit: cover;
 }
 
 .badge {
@@ -107,9 +98,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* ----------------------------------------------------------
-   5. Details container - vertical flex distribution
-   ---------------------------------------------------------- */
 .product-details {
   display: flex;
   flex-direction: column;
@@ -123,9 +111,7 @@ body {
   gap: 0.75rem;
 }
 
-/* ----------------------------------------------------------
-   6. Category / rating row
-   ---------------------------------------------------------- */
+/* category + rating */
 .meta-row {
   display: flex;
   justify-content: space-between;
@@ -148,9 +134,7 @@ body {
   color: var(--star);
 }
 
-/* ----------------------------------------------------------
-   7. Feature tags (wrapping flex row)
-   ---------------------------------------------------------- */
+/* feature tags */
 .feature-heading {
   margin-top: 0.25rem;
   font-size: 0.7rem;
@@ -176,9 +160,7 @@ body {
   color: #334155;
 }
 
-/* ----------------------------------------------------------
-   8. Pricing / button shelf
-   ---------------------------------------------------------- */
+/* price + button */
 .purchase-shelf {
   display: flex;
   flex-wrap: wrap;
@@ -206,7 +188,7 @@ body {
 }
 
 .btn-add {
-  width: 100%; /* full-width on mobile */
+  width: 100%; /* full width on mobile */
   padding: 0.9rem 1.75rem;
   border: none;
   border-radius: 0.75rem;
@@ -221,16 +203,14 @@ body {
   background-color: var(--accent-dark);
 }
 
-/* ----------------------------------------------------------
-   9. Desktop breakpoint - two equal grid columns
-   ---------------------------------------------------------- */
+/* desktop */
 @media (min-width: 768px) {
   body {
     padding: 3rem 2rem;
   }
 
   .product-card {
-    grid-template-columns: 1fr 1fr; /* image left, details right */
+    grid-template-columns: 1fr 1fr;
   }
 
   .product-media {
@@ -251,10 +231,7 @@ body {
   }
 }
 
-/* ----------------------------------------------------------
-   10. Transitions & micro-interactions
-   (only transform is animated -> GPU friendly)
-   ---------------------------------------------------------- */
+/* hover / click effects */
 .product-media img {
   transition: transform 0.3s ease;
 }
@@ -276,9 +253,7 @@ body {
   outline-offset: 3px;
 }
 
-/* ----------------------------------------------------------
-   11. Accessibility - respect reduced-motion preference
-   ---------------------------------------------------------- */
+/* turn off animations if the user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

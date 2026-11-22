@@ -330,6 +330,21 @@ button {
   .vinyl {
     width: 100%;
   }
+
+  /* five controls must fit inside the fixed 200px column */
+  .controls {
+    gap: 0.15rem;
+  }
+
+  .control {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .control--play {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 /* ----------------------------------------------------------

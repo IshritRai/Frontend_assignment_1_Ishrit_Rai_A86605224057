@@ -220,3 +220,33 @@ body {
 .btn-add:hover {
   background-color: var(--accent-dark);
 }
+
+/* ----------------------------------------------------------
+   9. Desktop breakpoint - two equal grid columns
+   ---------------------------------------------------------- */
+@media (min-width: 768px) {
+  body {
+    padding: 3rem 2rem;
+  }
+
+  .product-card {
+    grid-template-columns: 1fr 1fr; /* image left, details right */
+  }
+
+  .product-media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .product-details {
+    padding: 2rem;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .btn-add {
+    width: auto;
+  }
+}

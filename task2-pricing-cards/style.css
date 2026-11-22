@@ -316,3 +316,22 @@ body {
 .price-card--featured .plan-name {
   color: var(--accent);
 }
+
+/* ----------------------------------------------------------
+   10. Desktop breakpoint - three columns side by side
+   ---------------------------------------------------------- */
+@media (min-width: 850px) {
+  body {
+    padding: 4rem 2rem;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .price-card--featured {
+    order: 0; /* restore source order: Starter | Pro | Team */
+  }
+}

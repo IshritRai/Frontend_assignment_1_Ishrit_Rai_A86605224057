@@ -1,6 +1,6 @@
 # Responsive UI Mini-Components
 
-Front-End Engineering Lab — **Practical Assignment: Responsive Web Design**
+Front-End Engineering — **Practical Assignment: Responsive Web Design**
 
 Four responsive web components built with semantic HTML and hand-written CSS
 (no frameworks, no JavaScript), using Flexbox, CSS Grid, mobile-first media
